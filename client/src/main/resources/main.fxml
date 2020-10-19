@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zvyagin.vitalya.foblako.client.Controller">
+    <children>
+        <HBox fx:id="authPanel"  alignment="CENTER" layoutX="101.0" layoutY="358.0">
+
+            <Label text="Введите логин: " />
+            <TextField fx:id="loginField" promptText="Логин" HBox.hgrow="ALWAYS" />
+            <Label text=" Введите пароль : " />
+            <PasswordField fx:id="passField" promptText="Пароль" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets left="5.0" />
+                </HBox.margin>
+            </PasswordField>
+            <Button onAction="#sendAuth" text="Подключиться" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </Button>
+
+            <VBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </VBox.margin>
+        </HBox>
+        <BorderPane fx:id="storagePanel" prefHeight="590.0" prefWidth="790.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <bottom>
+                <HBox alignment="CENTER" prefHeight="30.0" prefWidth="790.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#btnSendFile" prefHeight="30.0" prefWidth="197.0" text="Отправить файл" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#btnClientFileDelete" prefHeight="30.0" prefWidth="197.0" text="Удалить файл" HBox.hgrow="ALWAYS" />
+
+                        <Button mnemonicParsing="false" onAction="#btnDownloadFile" prefHeight="30.0" prefWidth="197.0" text="Загрузить файл" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#btnServerFileDelete" prefHeight="30.0" prefWidth="197.0" text="Удалить файл" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TableView fx:id="clientFilesTable" prefHeight="395.0" prefWidth="395.0">
+                        </TableView>
+                        <TableView fx:id="serverFilesTable" prefHeight="395.0" prefWidth="395.0">
+                        </TableView>
+                    </children>
+                </HBox>
+            </center>
+            <top>
+                <VBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="790.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="395.0" text="Локальное хранилище">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="395.0" text="Серверное хранилище">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox>
+                            <HBox>
+                                <TextField fx:id="clientPathField" editable="false" prefWidth="350" HBox.hgrow="ALWAYS" />
+                                <Button onAction="#btnClientPathUpAction" prefWidth="45.0" text="Вверх" />
+                            </HBox>
+                            <HBox>
+                                <TextField fx:id="serverPathField" editable="false" prefWidth="350" HBox.hgrow="ALWAYS" />
+                                <Button onAction="#btnServerPathUpAction" prefWidth="45.0" text="Вверх" />
+                            </HBox>
+                        </HBox>
+                    </children>
+                </VBox>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
